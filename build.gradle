@@ -47,6 +47,28 @@ jacocoTestReport {
 		xml.outputLocation = layout.buildDirectory.file('jacoco.xml')
     }
 }
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            element = 'CLASS'  // Apply the rule at the class level
+
+            // Set a minimum percentage for line coverage
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.80  // 80% line coverage required
+            }
+
+            // Set a minimum percentage for branch coverage
+            limit {
+                counter = 'BRANCH'
+                value = 'COVEREDRATIO'
+                minimum = 0.70  // 70% branch coverage required
+            }
+        }
+    }
+}
+
 
 test {
     finalizedBy jacocoTestReport  // Generate the report after running tests

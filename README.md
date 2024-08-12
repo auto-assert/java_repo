@@ -40,7 +40,7 @@ Add the following to ./bashrc, ./zshrc, and ./bash_profile
         `keytool -import -alias custom-cert -keystore $JAVA_HOME/lib/security/cacerts -file /path/to/your/downloaded/certificate.pem`
     
     Replace /path/to/your/downloaded/certificate.pem with the actual path to the certificate file.
-    
+
     *** Note:  you may need to use sudo if you get a permissions error ***
 
 4. The default password for the Java truststore is `changeit`.
@@ -48,6 +48,15 @@ Add the following to ./bashrc, ./zshrc, and ./bash_profile
 ## Run Unit Tests
 
 `./gradlew test`
+
+## Run Tests with Coverage Reports
+
+The command below outputs coverage results in the following formats and locations:
+
+    *  HTML - /build/reports/tests/test/index.html
+    *  XML - /build/test-results/test/
+
+`./gradlew jacocoTestReport`
 
 ## Start server and run API locally
 Hit each endpoint listed above in Postman or by using curl after running the following:
